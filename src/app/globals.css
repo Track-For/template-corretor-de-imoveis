@@ -212,6 +212,57 @@ main {
   will-change: transform, opacity;
 }
 
+.hero-section,
+.hero-pin {
+  position: relative;
+  height: 100svh;
+  min-height: 46rem;
+}
+
+.hero-pin {
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.hero-media,
+.hero-zoom,
+.hero-sunrise {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media {
+  overflow: hidden;
+  will-change: clip-path, transform;
+}
+
+.hero-zoom {
+  will-change: transform;
+}
+
+.hero-sunrise {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgb(247 201 139 / 0.35) 0%,
+    rgb(247 201 139 / 0.16) 26%,
+    transparent 62%
+  );
+  background-position: 50% 80%;
+  background-size: 115% 175%;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  will-change: background-position;
+}
+
+.hero-search {
+  position: absolute;
+  right: clamp(1rem, 5.5vw, 5rem);
+  bottom: clamp(1.5rem, 4.5vh, 3.5rem);
+  left: clamp(1rem, 5.5vw, 5rem);
+  z-index: 10;
+  will-change: transform, opacity;
+}
+
 ::selection {
   background: #8a5e26;
   color: #ffffff;
@@ -465,6 +516,15 @@ select {
   .aurora-preloader {
     display: none;
   }
+
+  .hero-pin [data-hero-title],
+  .hero-pin [data-hero-copy] {
+    color: #f3e6d8;
+  }
+
+  .hero-media {
+    clip-path: none !important;
+  }
 }
 
 @media (prefers-reduced-transparency: reduce) {
@@ -529,5 +589,14 @@ select {
 
   .showcase-title {
     font-size: 2.25rem;
+  }
+
+  .hero-section,
+  .hero-pin {
+    min-height: 50rem;
+  }
+
+  .hero-search {
+    bottom: 1rem;
   }
 }
