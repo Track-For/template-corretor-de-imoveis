@@ -263,6 +263,34 @@ main {
   will-change: transform, opacity;
 }
 
+.webgl-canvas-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.webgl-canvas-shell > div,
+.webgl-canvas-shell canvas {
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+}
+
+.webgl-image-view {
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .webgl-image-fallback {
+    transition: transform 700ms ease;
+  }
+
+  [data-property-card]:hover .webgl-image-fallback {
+    transform: scale(1.05);
+  }
+}
+
 ::selection {
   background: #8a5e26;
   color: #ffffff;

@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { DistortedImage } from "@/components/webgl/DistortedImage";
 import { gsap } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { useRef, useState } from "react";
 
 const gallery = [
@@ -32,7 +32,7 @@ const specs = [
 
 export function FeaturedProperty() {
   const [current, setCurrent] = useState(0);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -60,15 +60,12 @@ export function FeaturedProperty() {
       <div className="site-container grid items-center gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
         <div className="relative md:col-span-7" data-cursor="drag">
           <div className="parallax-frame h-[520px] rounded-[30px] bg-line md:h-[760px]">
-            <div className="parallax-layer" data-parallax-layer>
-              <Image
-                ref={imageRef}
+            <div ref={imageRef} className="parallax-layer" data-parallax-layer>
+              <DistortedImage
                 key={gallery[current].src}
                 src={gallery[current].src}
                 alt={gallery[current].alt}
-                fill
                 sizes="(min-width: 768px) 60vw, 100vw"
-                className="object-cover"
               />
             </div>
           </div>

@@ -11,10 +11,12 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     if (media.matches) return;
 
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.09,
+      wheelMultiplier: 1,
       smoothWheel: true,
       anchors: { offset: -80 },
     });
+    (window as unknown as { auroraLenis?: Lenis }).auroraLenis = lenis;
     const update = (time: number) => lenis.raf(time * 1000);
 
     lenis.on("scroll", ScrollTrigger.update);
@@ -24,6 +26,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     return () => {
       gsap.ticker.remove(update);
       lenis.destroy();
+      delete (window as unknown as { auroraLenis?: Lenis }).auroraLenis;
       gsap.ticker.lagSmoothing(500, 33);
     };
   }, []);

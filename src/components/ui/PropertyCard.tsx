@@ -1,8 +1,8 @@
 "use client";
 
 import type { Property } from "@/data/properties";
+import { DistortedImage } from "@/components/webgl/DistortedImage";
 import { Heart } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 export function PropertyCard({ property }: { property: Property }) {
@@ -11,12 +11,11 @@ export function PropertyCard({ property }: { property: Property }) {
   return (
     <article className="group min-w-0" data-cursor="view" data-property-card>
       <div className="relative aspect-[4/3] overflow-hidden rounded-[26px] bg-line">
-        <Image
+        <DistortedImage
           src={property.image}
           alt={property.alt}
-          fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          className="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
         <button
           aria-label={
