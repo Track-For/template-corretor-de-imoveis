@@ -1,3 +1,5 @@
+import { DayCycle } from "@/components/layout/DayCycle";
+import { Preloader } from "@/components/layout/Preloader";
 import { ScrollAnimations } from "@/components/layout/ScrollAnimations";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import type { Metadata } from "next";
@@ -85,7 +87,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="pt-BR"
       className={`${fraunces.variable} ${manrope.variable} bg-sand antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('aurora-preloader-seen')==='true')document.documentElement.dataset.preloader='seen'}catch(e){}",
+          }}
+        />
+      </head>
       <body>
+        <Preloader />
+        <DayCycle />
         <SmoothScroll>
           <ScrollAnimations>{children}</ScrollAnimations>
         </SmoothScroll>

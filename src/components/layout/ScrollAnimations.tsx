@@ -16,45 +16,6 @@ export function ScrollAnimations({ children }: { children: ReactNode }) {
       const splits: SplitText[] = [];
 
       matchMedia.add("(prefers-reduced-motion: no-preference)", () => {
-        const heroTitle = root.current?.querySelector<HTMLElement>(
-          "[data-hero-title]",
-        );
-
-        if (heroTitle) {
-          const split = SplitText.create(heroTitle, {
-            type: "lines",
-            mask: "lines",
-            linesClass: "hero-line",
-          });
-          splits.push(split);
-
-          gsap
-            .timeline({ defaults: { ease: "expo.out" } })
-            .from(split.lines, {
-              yPercent: 100,
-              duration: 1.2,
-              stagger: 0.12,
-            })
-            .from(
-              "[data-hero-copy]",
-              { autoAlpha: 0, y: 20, duration: 0.7 },
-              "-=0.75",
-            )
-            .from(
-              "[data-hero-image]",
-              {
-                clipPath: "inset(100% 0% 0% 0% round 30px)",
-                duration: 1.25,
-              },
-              "-=0.72",
-            )
-            .from(
-              "[data-hero-search]",
-              { autoAlpha: 0, y: 24, duration: 0.72 },
-              "-=0.55",
-            );
-        }
-
         gsap.utils.toArray<HTMLElement>("[data-reveal-title]").forEach((title) => {
           const split = SplitText.create(title, {
             type: "lines",
