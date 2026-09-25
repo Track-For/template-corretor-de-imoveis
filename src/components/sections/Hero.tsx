@@ -96,6 +96,7 @@ export function Hero() {
                     {select.label}
                   </span>
                   <select
+                    data-cursor="hide"
                     className="w-full appearance-none border-0 bg-transparent pr-6 text-sm font-semibold text-ink outline-none"
                     defaultValue={select.options[0]}
                     id={select.id}

@@ -9,7 +9,7 @@ export function PropertyCard({ property }: { property: Property }) {
   const [favorite, setFavorite] = useState(false);
 
   return (
-    <article className="group min-w-0" data-property-card>
+    <article className="group min-w-0" data-cursor="view" data-property-card>
       <div className="relative aspect-[4/3] overflow-hidden rounded-[26px] bg-line">
         <Image
           src={property.image}

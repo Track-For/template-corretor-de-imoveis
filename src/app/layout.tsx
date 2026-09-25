@@ -1,3 +1,4 @@
+import { CustomCursor } from "@/components/layout/CustomCursor";
 import { DayCycle } from "@/components/layout/DayCycle";
 import { Preloader } from "@/components/layout/Preloader";
 import { ScrollAnimations } from "@/components/layout/ScrollAnimations";
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <Preloader />
         <DayCycle />
+        <CustomCursor />
         <SmoothScroll>
           <ScrollAnimations>{children}</ScrollAnimations>
         </SmoothScroll>

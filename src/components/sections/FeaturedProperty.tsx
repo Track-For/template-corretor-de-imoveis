@@ -58,7 +58,7 @@ export function FeaturedProperty() {
       id="destaque"
     >
       <div className="site-container grid items-center gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
-        <div className="relative md:col-span-7">
+        <div className="relative md:col-span-7" data-cursor="drag">
           <div className="parallax-frame h-[520px] rounded-[30px] bg-line md:h-[760px]">
             <div className="parallax-layer" data-parallax-layer>
               <Image

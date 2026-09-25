@@ -85,6 +85,7 @@ export function Contact() {
                 <span className="text-sm font-bold">Nome</span>
                 <input
                   {...register("name")}
+                  data-cursor="hide"
                   aria-invalid={Boolean(errors.name)}
                   autoComplete="name"
                   className="min-h-12 rounded-xl border border-line bg-white/45 px-4 text-base text-ink placeholder:text-muted/75 focus:border-bronze focus:outline-none"
@@ -103,6 +104,7 @@ export function Contact() {
                 <span className="text-sm font-bold">WhatsApp</span>
                 <input
                   {...register("whatsapp")}
+                  data-cursor="hide"
                   aria-invalid={Boolean(errors.whatsapp)}
                   autoComplete="tel"
                   className="min-h-12 rounded-xl border border-line bg-white/45 px-4 text-base text-ink placeholder:text-muted/75 focus:border-bronze focus:outline-none"
@@ -127,6 +129,7 @@ export function Contact() {
                 <span className="text-sm font-bold">O que você procura?</span>
                 <select
                   {...register("interest")}
+                  data-cursor="hide"
                   aria-invalid={Boolean(errors.interest)}
                   className="min-h-12 rounded-xl border border-line bg-white/45 px-4 text-base text-ink focus:border-bronze focus:outline-none"
                   id="contact-interest"
