@@ -1,6 +1,6 @@
 "use client";
 
-import { gsap, ScrollTrigger, SplitText } from "@/lib/gsap";
+import { gsap, SplitText } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
 import type { ReactNode } from "react";
 import { useRef } from "react";
@@ -87,19 +87,6 @@ export function ScrollAnimations({ children }: { children: ReactNode }) {
               once: true,
             },
           });
-        });
-
-        ScrollTrigger.batch("[data-property-card]", {
-          start: "top 88%",
-          once: true,
-          onEnter: (cards) =>
-            gsap.from(cards, {
-              autoAlpha: 0,
-              y: 40,
-              duration: 0.72,
-              stagger: 0.09,
-              ease: "power3.out",
-            }),
         });
 
         gsap.utils.toArray<HTMLElement>("[data-parallax-layer]").forEach((layer) => {
