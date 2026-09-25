@@ -435,6 +435,69 @@ select {
   -webkit-text-stroke: 1px var(--fg);
 }
 
+.showcase-horizontal-section {
+  position: relative;
+  padding-block: 5.5rem;
+}
+
+.showcase-horizontal-stage {
+  position: relative;
+}
+
+.showcase-horizontal-intro {
+  padding-inline: clamp(1rem, 5.5vw, 5rem);
+}
+
+.showcase-horizontal-title {
+  max-width: 9ch;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  font-weight: 300;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.showcase-horizontal-viewport {
+  margin-top: 2.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+.showcase-horizontal-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  padding-inline: clamp(1rem, 5.5vw, 5rem);
+}
+
+.showcase-horizontal-card {
+  width: min(86vw, 31rem);
+  height: min(70svh, 42rem);
+  min-height: 34rem;
+  flex: none;
+  scroll-snap-align: center;
+}
+
+.property-card-media--immersive {
+  position: absolute;
+  inset: 0 -15%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.property-card-info {
+  position: absolute;
+  right: clamp(1.25rem, 3vw, 2.25rem);
+  bottom: clamp(1.35rem, 3vw, 2.25rem);
+  left: clamp(1.25rem, 3vw, 2.25rem);
+  z-index: 10;
+}
+
+.showcase-progress {
+  display: none;
+}
+
 .showcase-orbit-viewport {
   position: relative;
   min-height: 34rem;
@@ -608,6 +671,85 @@ select {
   .showcase-orbit-card {
     width: clamp(18rem, 22vw, 20.5rem);
     will-change: transform, opacity;
+  }
+}
+
+@media (min-width: 64rem) {
+  .showcase-horizontal-section,
+  .showcase-horizontal-stage {
+    height: 100svh;
+    min-height: 45rem;
+    padding: 0;
+  }
+
+  .showcase-horizontal-stage {
+    overflow: hidden;
+  }
+
+  .showcase-horizontal-intro {
+    position: absolute;
+    top: 12vh;
+    bottom: 7vh;
+    left: clamp(1rem, 5.5vw, 5rem);
+    z-index: 20;
+    display: flex;
+    width: 26vw;
+    min-width: 18rem;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .showcase-horizontal-title {
+    font-size: clamp(3.25rem, 5.2vw, 5.25rem);
+  }
+
+  .showcase-horizontal-viewport {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    overflow: hidden;
+    scroll-snap-type: none;
+  }
+
+  .showcase-horizontal-track {
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    gap: 2vw;
+    padding-right: 8vw;
+    padding-left: 32vw;
+    will-change: transform;
+  }
+
+  .showcase-horizontal-card {
+    width: 36vw;
+    min-width: 30rem;
+    max-width: 43rem;
+    height: 70vh;
+    min-height: 32rem;
+    max-height: 50rem;
+  }
+
+  .showcase-progress {
+    position: absolute;
+    right: 5.5vw;
+    bottom: 4vh;
+    left: 32vw;
+    z-index: 30;
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    background: rgb(26 24 20 / 0.18);
+  }
+
+  .showcase-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--fg);
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
   }
 }
 
