@@ -498,6 +498,66 @@ select {
   display: none;
 }
 
+.manifesto-section,
+.manifesto-pin {
+  position: relative;
+  min-height: 100svh;
+}
+
+.manifesto-pin {
+  display: grid;
+  min-height: 100svh;
+  align-items: center;
+  overflow: hidden;
+  padding-block: clamp(5.5rem, 9vh, 7.5rem) clamp(2rem, 5vh, 4rem);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.manifesto-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(62rem, 72vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(206 112 55 / 0.2) 0%,
+    rgb(206 112 55 / 0.07) 35%,
+    transparent 70%
+  );
+  filter: blur(32px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.manifesto-statement {
+  max-width: 86rem;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(2.7rem, 6vw, 6.35rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.manifesto-statement > span {
+  display: inline-block;
+  will-change: opacity, color;
+}
+
+.manifesto-beliefs {
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(3rem, 8vh, 6.5rem);
+}
+
+@media (min-width: 48rem) {
+  .manifesto-beliefs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .showcase-orbit-viewport {
   position: relative;
   min-height: 34rem;
@@ -620,6 +680,11 @@ select {
 
   .hero-media {
     clip-path: none !important;
+  }
+
+  [data-manifesto-emphasis] {
+    color: #c9a36b;
+    font-style: italic;
   }
 }
 

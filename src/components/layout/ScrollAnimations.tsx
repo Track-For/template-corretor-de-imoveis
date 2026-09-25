@@ -67,25 +67,6 @@ export function ScrollAnimations({ children }: { children: ReactNode }) {
           );
         });
 
-        const words = gsap.utils.toArray<HTMLElement>("[data-manifesto-word]");
-        if (words.length) {
-          gsap.fromTo(
-            words,
-            { opacity: 0.2 },
-            {
-              opacity: 1,
-              stagger: 0.08,
-              ease: "none",
-              scrollTrigger: {
-                trigger: "[data-manifesto-copy]",
-                start: "top 78%",
-                end: "bottom 48%",
-                scrub: true,
-              },
-            },
-          );
-        }
-
         gsap.utils.toArray<HTMLElement>("[data-process-line]").forEach((line, index) => {
           gsap.from(line, {
             scaleX: 0,
