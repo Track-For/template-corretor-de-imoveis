@@ -411,12 +411,28 @@ select {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 28s linear infinite;
+  transform-origin: center;
   will-change: transform;
 }
 
-.marquee-shell:hover .marquee-track {
-  animation-play-state: paused;
+.marquee-name {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: var(--fg);
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  opacity: 0.72;
+}
+
+.marquee-track--outline .marquee-name {
+  color: transparent;
+  opacity: 0.48;
+  -webkit-text-stroke: 1px var(--fg);
 }
 
 .showcase-orbit-viewport {
@@ -516,12 +532,6 @@ select {
   box-shadow: 0 1.5rem 4rem rgb(59 44 24 / 0.08);
 }
 
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -534,11 +544,6 @@ select {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .marquee-track {
-    animation: none;
-    transform: none;
   }
 
   .aurora-preloader {
