@@ -8,6 +8,7 @@ import { Manifesto } from "@/components/sections/Manifesto";
 import { NeighborhoodStrip } from "@/components/sections/NeighborhoodStrip";
 import { Process } from "@/components/sections/Process";
 import { Showcase } from "@/components/sections/Showcase";
+import { ZoomTransition } from "@/components/sections/ZoomTransition";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurora-residencias.vercel.app";
@@ -44,11 +45,38 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <ZoomTransition
+          from="00"
+          to="01"
+          nextChapter="A arte de morar bem"
+          leftWord="A arte"
+          rightWord="de morar"
+          image="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=88"
+          alt="Interior sereno que introduz o capítulo A arte de morar bem"
+        />
+        <Manifesto />
         <NeighborhoodStrip />
         <Showcase />
-        <Manifesto />
+        <ZoomTransition
+          from="02"
+          to="03"
+          nextChapter="Três mundos"
+          leftWord="Três"
+          rightWord="mundos"
+          image="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=88"
+          alt="Terraço panorâmico que introduz o capítulo Três mundos"
+        />
         <FeaturedProperty />
         <Process />
+        <ZoomTransition
+          from="04"
+          to="05"
+          nextChapter="Onde a luz chega"
+          leftWord="Onde a luz"
+          rightWord="chega"
+          image="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=2200&q=88"
+          alt="Cidade ao anoitecer que introduz o capítulo Onde a luz chega"
+        />
         <Broker />
         <Contact />
       </main>

@@ -329,6 +329,90 @@ main {
   min-height: 46rem;
 }
 
+.zoom-transition {
+  position: relative;
+}
+
+.zoom-transition-pin {
+  position: relative;
+  height: 100dvh;
+  min-height: 42rem;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.zoom-transition-frame,
+.zoom-transition-image,
+.zoom-transition-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.zoom-transition-frame {
+  overflow: hidden;
+  clip-path: inset(32% 36% 32% 36% round 20px);
+  will-change: clip-path;
+}
+
+.zoom-transition-image {
+  will-change: transform;
+}
+
+.zoom-transition-shade {
+  background: linear-gradient(0deg, rgb(17 16 20 / 0.72), transparent 58%);
+}
+
+.zoom-transition-word {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  color: var(--fg);
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(3.5rem, 8.5vw, 8.5rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.zoom-transition-word--left {
+  left: 3vw;
+  transform: translateY(-50%);
+}
+
+.zoom-transition-word--right {
+  right: 3vw;
+  transform: translateY(-50%);
+}
+
+.zoom-transition-opening {
+  position: absolute;
+  right: clamp(1rem, 5.5vw, 5rem);
+  bottom: clamp(2rem, 7vh, 5.5rem);
+  left: clamp(1rem, 5.5vw, 5rem);
+  z-index: 3;
+  display: grid;
+  color: #fff;
+}
+
+.zoom-transition-opening span {
+  margin-bottom: 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.zoom-transition-opening strong {
+  max-width: 10ch;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
 .webgl-canvas-shell {
   position: fixed;
   inset: 0;
@@ -834,6 +918,24 @@ select {
     transform: none;
   }
 
+  .zoom-transition-pin {
+    height: 78dvh;
+    min-height: 34rem;
+  }
+
+  .zoom-transition-frame {
+    clip-path: inset(0% 0% 0% 0% round 0px);
+  }
+
+  .zoom-transition-word {
+    display: none;
+  }
+
+  .zoom-transition-opening {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   [data-manifesto-emphasis] {
     color: #c9a36b;
     font-style: italic;
@@ -1014,6 +1116,25 @@ select {
 
   .hero-scroll-cue {
     align-self: flex-end;
+  }
+
+  .zoom-transition-frame {
+    clip-path: inset(25% 7% 25% 7% round 20px);
+  }
+
+  .zoom-transition-word {
+    top: 28%;
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .zoom-transition-word--left {
+    left: 1rem;
+  }
+
+  .zoom-transition-word--right {
+    top: auto;
+    right: 1rem;
+    bottom: 24%;
   }
 
   .featured-story {

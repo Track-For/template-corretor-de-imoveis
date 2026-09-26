@@ -6,18 +6,18 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
 const statement = [
-  { word: "Não" },
-  { word: "vendemos" },
-  { word: "metros" },
-  { word: "quadrados." },
-  { word: "Abrimos" },
-  { word: "a" },
-  { word: "porta" },
-  { word: "do" },
-  { word: "próximo", emphasis: true },
-  { word: "capítulo", emphasis: true },
-  { word: "da" },
-  { word: "sua" },
+  { word: "Não " },
+  { word: "vendemos " },
+  { word: "metros " },
+  { word: "quadrados. " },
+  { word: "Abrimos " },
+  { word: "a " },
+  { word: "porta " },
+  { word: "do " },
+  { word: "próximo ", emphasis: true },
+  { word: "capítulo ", emphasis: true },
+  { word: "da " },
+  { word: "sua " },
   { word: "história." },
 ];
 
@@ -138,12 +138,14 @@ export function Manifesto() {
       ref={sectionRef}
       aria-labelledby="manifesto-title"
       className="manifesto-section"
-      id="manifesto"
+      data-chapter="01"
+      data-chapter-name="A arte de morar bem"
+      id="capitulo-01"
     >
       <div ref={pinRef} className="manifesto-pin">
         <div ref={glowRef} aria-hidden="true" className="manifesto-glow" />
         <div className="site-container relative z-10">
-          <SectionLabel>02 — Nossa crença</SectionLabel>
+          <SectionLabel>Capítulo 01 — A arte de morar bem</SectionLabel>
           <h2
             className="manifesto-statement"
             data-manifesto-copy
