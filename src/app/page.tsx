@@ -1,6 +1,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { CityMap } from "@/components/sections/CityMap";
+import { BrokerQuote } from "@/components/sections/BrokerQuote";
 import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
@@ -76,6 +77,7 @@ export default function Home() {
           alt="Cidade ao anoitecer que introduz o capítulo Onde a luz chega"
         />
         <CityMap />
+        <BrokerQuote />
         <Contact />
       </main>
       <Footer />

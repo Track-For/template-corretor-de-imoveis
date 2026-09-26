@@ -1203,6 +1203,92 @@ main {
   }
 }
 
+.broker-quote-section {
+  position: relative;
+  min-height: 180dvh;
+  background: #111014;
+  color: #ede6da;
+}
+
+.broker-quote-sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  min-height: 100dvh;
+  align-content: center;
+  justify-items: center;
+  padding-block: 7rem 4rem;
+  text-align: center;
+}
+
+.broker-quote-sticky > .chapter-kicker {
+  margin-bottom: clamp(3rem, 8vh, 6rem);
+  color: #c9954d;
+}
+
+.broker-quote-sticky blockquote {
+  max-width: 18ch;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.broker-quote-sticky blockquote > span {
+  display: inline;
+}
+
+.broker-signature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(3rem, 8vh, 6rem);
+  text-align: left;
+}
+
+.broker-avatar {
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.broker-signature p {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.broker-signature strong {
+  font-family: var(--font-fraunces), serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.broker-signature span {
+  color: rgb(237 230 218 / 0.55);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .broker-quote-section {
+    min-height: auto;
+  }
+
+  .broker-quote-sticky {
+    position: relative;
+  }
+
+  [data-quote-word] {
+    opacity: 1 !important;
+  }
+}
+
 @media (min-width: 48rem) {
   .chapter-manifesto-grid {
     grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);
