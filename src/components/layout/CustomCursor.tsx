@@ -115,7 +115,7 @@ export function CustomCursor() {
           backgroundColor: settings.backgroundColor,
           borderColor: settings.borderColor,
           autoAlpha: settings.autoAlpha,
-          duration: 0.38,
+          duration: 0.6,
           ease: "aurora",
           overwrite: "auto",
         });
@@ -123,12 +123,12 @@ export function CustomCursor() {
           scaleX: settings.labelScaleX,
           scaleY: settings.labelScaleY,
           autoAlpha: settings.text ? 1 : 0,
-          duration: 0.3,
+          duration: 0.6,
           overwrite: "auto",
         });
         gsap.to(dot, {
           autoAlpha: state === "hide" ? 0 : 1,
-          duration: 0.2,
+          duration: 0.6,
           overwrite: "auto",
         });
       };
@@ -147,7 +147,7 @@ export function CustomCursor() {
       };
 
       const onPointerLeave = () => {
-        gsap.to([dot, ring], { autoAlpha: 0, duration: 0.2, overwrite: true });
+        gsap.to([dot, ring], { autoAlpha: 0, duration: 0.6, overwrite: true });
       };
 
       window.addEventListener("pointermove", onPointerMove, { passive: true });

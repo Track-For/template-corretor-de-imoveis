@@ -33,14 +33,14 @@ export function Button({
   onClick,
   showArrow = true,
 }: ButtonProps) {
-  const classes = `group inline-flex min-h-12 shrink-0 items-center justify-center gap-3 whitespace-nowrap rounded-full border px-6 py-3 text-sm font-semibold transition-[background-color,color,border-color,transform] duration-300 ease-out active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-55 ${variants[variant]} ${className}`;
+  const classes = `group inline-flex min-h-12 shrink-0 items-center justify-center gap-3 whitespace-nowrap rounded-full border px-6 py-3 text-sm font-semibold transition-[background-color,color,border-color,transform] duration-[600ms] ease-out active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-55 ${variants[variant]} ${className}`;
   const content = (
     <>
       <span>{children}</span>
       {showArrow ? (
         <ArrowRight
           aria-hidden="true"
-          className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+          className="size-4 transition-transform duration-[600ms] group-hover:translate-x-1"
           strokeWidth={1.8}
         />
       ) : null}

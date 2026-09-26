@@ -3,7 +3,6 @@ import { DayCycle } from "@/components/layout/DayCycle";
 import { Preloader } from "@/components/layout/Preloader";
 import { ScrollAnimations } from "@/components/layout/ScrollAnimations";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { WebGLCanvasLoader } from "@/components/webgl/WebGLCanvasLoader";
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
@@ -98,10 +97,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        <a className="skip-link" href="#capitulo-00">Pular para o conteúdo</a>
         <Preloader />
         <DayCycle />
         <CustomCursor />
-        <WebGLCanvasLoader />
         <SmoothScroll>
           <ScrollAnimations>{children}</ScrollAnimations>
         </SmoothScroll>

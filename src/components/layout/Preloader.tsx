@@ -62,15 +62,15 @@ export function Preloader() {
             strips,
             {
               yPercent: -((counterSteps.length - 1) / counterSteps.length) * 100,
-              duration: 1.25,
+              duration: 0.85,
               ease: "power2.inOut",
             },
             0,
           )
-          .to(line, { scaleX: 1, duration: 1.25, ease: "none" }, 0)
-          .to(content, { autoAlpha: 0, duration: 0.18 }, 1.22)
-          .to(curtainTop, { yPercent: -100, duration: 1.1 }, 1.3)
-          .to(curtainBottom, { yPercent: 100, duration: 1.1 }, 1.3);
+          .to(line, { scaleX: 1, duration: 0.85, ease: "none" }, 0)
+          .to(content, { autoAlpha: 0, duration: 0.15 }, 0.36)
+          .to(curtainTop, { yPercent: -100, duration: 1.2 }, 0.4)
+          .to(curtainBottom, { yPercent: 100, duration: 1.2 }, 0.4);
       });
 
       return () => {

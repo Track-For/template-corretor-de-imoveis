@@ -88,7 +88,7 @@ export function PropertyGallery() {
     if (!section || !webglEnabled) return;
     const observer = new IntersectionObserver(
       ([entry]) => setActive(entry.isIntersecting),
-      { rootMargin: "30% 0px", threshold: 0.01 },
+      { rootMargin: "100% 0px", threshold: 0.01 },
     );
     observer.observe(section);
     return () => observer.disconnect();
@@ -156,11 +156,11 @@ export function PropertyGallery() {
       <div className="property-gallery-stage">
         <div className="property-gallery-heading">
           <p className="chapter-kicker">Capítulo 02</p>
-          <h2 id="collection-title">A coleção</h2>
+          <h2 data-reveal-title id="collection-title">A coleção</h2>
           <span>{String(activeIndex + 1).padStart(2, "0")} / 06</span>
         </div>
 
-        {webglEnabled ? (
+        {webglEnabled && active ? (
           <div className="property-gallery-canvas" data-cursor="explore">
             <PropertyGalleryCanvas
               active={active}
@@ -168,17 +168,27 @@ export function PropertyGallery() {
               properties={properties}
             />
           </div>
-        ) : (
+        ) : !webglEnabled ? (
           <GalleryFallback />
+        ) : (
+          <div className="property-gallery-placeholder" aria-hidden="true">
+            <Image
+              src={properties[0].image}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
         )}
 
-        {webglEnabled ? (
+        {webglEnabled && active ? (
           <div ref={panelRef} className="property-gallery-panel" aria-live="polite">
             <PropertyDetails property={property} />
           </div>
         ) : null}
 
-        {webglEnabled ? (
+        {webglEnabled && active ? (
           <p className="property-gallery-instruction">Role para atravessar a coleção</p>
         ) : null}
       </div>

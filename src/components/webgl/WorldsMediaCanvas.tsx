@@ -84,15 +84,15 @@ function DisplacementPlane({ images, activeIndex }: { images: string[]; activeIn
   const noiseTexture = useMemo(() => createNoiseTexture(), []);
   const uniforms = useMemo(
     () => ({
-      uFrom: { value: textures[activeIndex] },
-      uTo: { value: textures[activeIndex] },
+      uFrom: { value: textures[0] },
+      uTo: { value: textures[0] },
       uNoise: { value: noiseTexture },
-      uFromSize: { value: imageSize(textures[activeIndex]) },
-      uToSize: { value: imageSize(textures[activeIndex]) },
+      uFromSize: { value: imageSize(textures[0]) },
+      uToSize: { value: imageSize(textures[0]) },
       uPlaneSize: { value: new Vector2(viewport.width, viewport.height) },
       uProgress: { value: 1 },
     }),
-    [activeIndex, noiseTexture, textures, viewport.height, viewport.width],
+    [noiseTexture, textures, viewport.height, viewport.width],
   );
 
   useEffect(() => {

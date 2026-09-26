@@ -47,12 +47,15 @@ export function Contact() {
   return (
     <section
       aria-labelledby="contact-title"
-      className="pb-[clamp(5rem,9vw,9rem)]"
+      className="contact-section"
+      data-chapter="07"
+      data-chapter-name="Contato"
       id="contato"
     >
       <div className="site-container">
         <div className="grid gap-12 rounded-[32px] bg-bronze px-5 py-8 text-white sm:px-8 md:grid-cols-12 md:items-center md:px-12 md:py-14 lg:gap-20 lg:px-20 lg:py-20">
           <div className="md:col-span-6">
+            <p className="chapter-kicker mb-6 text-white/70">Capítulo 07 — Contato</p>
             <h2
               className="font-display text-[clamp(2.75rem,5.7vw,5.75rem)] font-light leading-[0.98] tracking-[-0.045em]"
               data-reveal-title
@@ -60,7 +63,7 @@ export function Contact() {
             >
               Receba sua curadoria em até 24 horas.
             </h2>
-            <p className="mt-7 max-w-lg text-[1.0625rem] leading-7 text-white/82">
+            <p className="mt-7 max-w-lg text-[1.0625rem] leading-7 text-white/90">
               Conte o que você procura. Nós retornamos com as primeiras perguntas
               para começar uma seleção feita para o seu momento.
             </p>

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { ChapterNavigation } from "@/components/layout/ChapterNavigation";
 import { CityMap } from "@/components/sections/CityMap";
 import { BrokerQuote } from "@/components/sections/BrokerQuote";
 import { Contact } from "@/components/sections/Contact";
@@ -43,6 +44,7 @@ export default function Home() {
         }}
       />
       <Header />
+      <ChapterNavigation />
       <main>
         <Hero />
         <ZoomTransition

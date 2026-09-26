@@ -97,7 +97,7 @@ export function CityMap() {
     >
       <div className="site-container city-map-heading">
         <p className="chapter-kicker">Capítulo 05</p>
-        <h2 id="map-title">Onde a luz chega</h2>
+        <h2 data-reveal-title id="map-title">Onde a luz chega</h2>
       </div>
 
       <div className="city-map-layout">
@@ -119,7 +119,7 @@ export function CityMap() {
         </nav>
 
         <div className="city-map-viewport">
-          {webglEnabled ? (
+          {webglEnabled && active ? (
             <CityMapCanvas active={active} activeIndex={activeIndex} />
           ) : (
             <MapFallback activeIndex={activeIndex} />

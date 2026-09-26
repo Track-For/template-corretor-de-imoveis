@@ -91,7 +91,7 @@ export function PrinciplesClient({
       <div className="site-container">
         <div className="principles-heading">
           <p className="chapter-kicker">Capítulo 04</p>
-          <h2 id="principles-title">Nossos princípios</h2>
+          <h2 data-reveal-title id="principles-title">Nossos princípios</h2>
           <p>Seis compromissos que orientam cada conversa, visita e decisão.</p>
         </div>
 

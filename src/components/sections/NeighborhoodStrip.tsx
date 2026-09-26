@@ -72,14 +72,6 @@ export function NeighborhoodStrip() {
         duration: 0.42,
         ease: "power2.out",
       });
-      const primarySkew = gsap.quickTo(primary, "skewX", {
-        duration: 0.35,
-        ease: "power3.out",
-      });
-      const reverseSkew = gsap.quickTo(reverse, "skewX", {
-        duration: 0.35,
-        ease: "power3.out",
-      });
       let direction = 1;
 
       const update = () => {
@@ -91,12 +83,9 @@ export function NeighborhoodStrip() {
         const velocity = lenis?.velocity ?? 0;
         if (Math.abs(velocity) > 0.08) direction = velocity < 0 ? -1 : 1;
         const multiplier = direction * (1 + Math.min(Math.abs(velocity) * 0.1, 4));
-        const skew = gsap.utils.clamp(-12, 12, velocity * 0.32);
 
         primarySpeed(multiplier);
         reverseSpeed(multiplier);
-        primarySkew(skew);
-        reverseSkew(-skew);
       };
 
       gsap.ticker.add(update);

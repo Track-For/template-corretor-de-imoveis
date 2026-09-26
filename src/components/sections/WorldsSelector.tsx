@@ -39,6 +39,8 @@ const worlds = [
   },
 ] as const;
 
+const worldImages = worlds.map((world) => world.image);
+
 function supportsWebGL() {
   try {
     const canvas = document.createElement("canvas");
@@ -49,8 +51,10 @@ function supportsWebGL() {
 }
 
 export function WorldsSelector() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [webglEnabled, setWebglEnabled] = useState(false);
+  const [nearViewport, setNearViewport] = useState(false);
   const mediaRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -59,10 +63,21 @@ export function WorldsSelector() {
     setWebglEnabled(!reduced && supportsWebGL());
   }, []);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setNearViewport(entry.isIntersecting),
+      { rootMargin: "100% 0px", threshold: 0.01 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   useGSAP(
     () => {
       const media = mediaRef.current;
-      if (!media || webglEnabled) return;
+      if (!media || webglEnabled || !nearViewport) return;
       const images = media.querySelectorAll<HTMLElement>("[data-world-image]");
       images.forEach((image, index) => {
         gsap.set(image, {
@@ -76,7 +91,11 @@ export function WorldsSelector() {
         { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "aurora" },
       );
     },
-    { scope: mediaRef, dependencies: [activeIndex, webglEnabled], revertOnUpdate: true },
+    {
+      scope: mediaRef,
+      dependencies: [activeIndex, nearViewport, webglEnabled],
+      revertOnUpdate: true,
+    },
   );
 
   const select = (index: number) => setActiveIndex(index);
@@ -94,6 +113,7 @@ export function WorldsSelector() {
 
   return (
     <section
+      ref={sectionRef}
       aria-labelledby="worlds-title"
       className="worlds-section"
       data-chapter="03"
@@ -131,10 +151,10 @@ export function WorldsSelector() {
 
         <div className="worlds-media-column">
           <div ref={mediaRef} className="worlds-media" data-cursor="view">
-            {webglEnabled ? (
+            {webglEnabled && nearViewport ? (
               <WorldsMediaCanvas
                 activeIndex={activeIndex}
-                images={worlds.map((world) => world.image)}
+                images={worldImages}
               />
             ) : (
               worlds.map((world) => (

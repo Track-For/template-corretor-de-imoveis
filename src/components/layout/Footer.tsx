@@ -1,23 +1,22 @@
 import { ArrowUpRight } from "lucide-react";
 
 const footerLinks = [
-  { label: "Imóveis", href: "#imoveis" },
-  { label: "Em destaque", href: "#destaque" },
-  { label: "Como funciona", href: "#processo" },
-  { label: "Sobre", href: "#corretor" },
+  { label: "Coleção", href: "#capitulo-02" },
+  { label: "Três mundos", href: "#capitulo-03" },
+  { label: "Princípios", href: "#capitulo-04" },
+  { label: "Bairros", href: "#capitulo-05" },
   { label: "Contato", href: "#contato" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-sand">
+    <footer className="site-footer bg-ink text-sand">
       <div className="site-container pb-8 pt-20 md:pt-28">
         <div className="grid gap-16 border-b border-sand/15 pb-16 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
             <a
-              aria-label="Aurora Residências, voltar ao início"
               className="inline-flex flex-col"
-              href="#topo"
+              href="#capitulo-00"
             >
               <span className="font-display text-[clamp(4.5rem,11vw,10.5rem)] font-light leading-[0.72] tracking-[-0.06em]">
                 Aurora

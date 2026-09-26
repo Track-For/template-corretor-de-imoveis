@@ -7,10 +7,10 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
-  { label: "Imóveis", href: "#imoveis" },
-  { label: "Em destaque", href: "#destaque" },
-  { label: "Como funciona", href: "#processo" },
-  { label: "Sobre", href: "#corretor" },
+  { label: "Coleção", href: "#capitulo-02" },
+  { label: "Três mundos", href: "#capitulo-03" },
+  { label: "Princípios", href: "#capitulo-04" },
+  { label: "Bairros", href: "#capitulo-05" },
 ];
 
 export function Header() {
@@ -42,16 +42,16 @@ export function Header() {
       ).matches;
       if (reduceMotion) return;
 
-      const timeline = gsap.timeline({ defaults: { ease: "expo.out" } });
+      const timeline = gsap.timeline({ defaults: { ease: "aurora" } });
       timeline
         .from(menuRef.current, {
           clipPath: "inset(0 0 100% 0)",
-          duration: 0.72,
+          duration: 1.2,
         })
         .from(
           menuRef.current.querySelectorAll("[data-menu-item]"),
-          { y: 32, autoAlpha: 0, duration: 0.62, stagger: 0.08 },
-          "-=0.38",
+          { y: 32, autoAlpha: 0, duration: 1.2, stagger: 0.08 },
+          "-=0.85",
         );
     },
     { scope: menuRef, dependencies: [menuOpen] },
@@ -76,9 +76,8 @@ export function Header() {
     >
       <div className="site-container flex h-full items-center justify-between gap-8">
         <a
-          aria-label="Aurora Residências, voltar ao início"
           className="relative z-50 flex shrink-0 flex-col leading-none"
-          href="#topo"
+          href="#capitulo-00"
           onClick={() => setMenuOpen(false)}
         >
           <span className="font-display text-[30px] font-normal tracking-[-0.04em]">

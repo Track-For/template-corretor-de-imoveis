@@ -51,13 +51,16 @@ export function BrokerQuote() {
       <div className="site-container broker-quote-sticky">
         <p className="chapter-kicker">Capítulo 06 — Palavra do corretor</p>
         <blockquote id="broker-quote">
-          <span aria-hidden="true">“</span>
-          {quote.split(" ").map((word, index) => (
-            <span key={`${word}-${index}`} data-quote-word>
-              {word}{" "}
-            </span>
-          ))}
-          <span aria-hidden="true">”</span>
+          <span className="sr-only">“{quote}”</span>
+          <span aria-hidden="true" className="broker-quote-words">
+            <span>“</span>
+            {quote.split(" ").map((word, index) => (
+              <span key={`${word}-${index}`} data-quote-word>
+                {word}{" "}
+              </span>
+            ))}
+            <span>”</span>
+          </span>
         </blockquote>
 
         <div className="broker-signature">
