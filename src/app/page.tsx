@@ -5,9 +5,8 @@ import { Contact } from "@/components/sections/Contact";
 import { FeaturedProperty } from "@/components/sections/FeaturedProperty";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
-import { NeighborhoodStrip } from "@/components/sections/NeighborhoodStrip";
+import { PropertyGallery } from "@/components/sections/PropertyGallery";
 import { Process } from "@/components/sections/Process";
-import { Showcase } from "@/components/sections/Showcase";
 import { ZoomTransition } from "@/components/sections/ZoomTransition";
 
 const siteUrl =
@@ -55,8 +54,7 @@ export default function Home() {
           alt="Interior sereno que introduz o capítulo A arte de morar bem"
         />
         <Manifesto />
-        <NeighborhoodStrip />
-        <Showcase />
+        <PropertyGallery />
         <ZoomTransition
           from="02"
           to="03"

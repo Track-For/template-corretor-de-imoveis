@@ -4,7 +4,7 @@ import { gsap } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
-type CursorState = "default" | "view" | "drag" | "hide" | "interactive";
+type CursorState = "default" | "view" | "explore" | "hide" | "interactive";
 
 export function CustomCursor() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -43,8 +43,10 @@ export function CustomCursor() {
           "[data-cursor],a,button,input,select,textarea",
         );
         if (!interactive) return "default";
-        const declared = interactive.dataset.cursor as CursorState | undefined;
-        if (declared) return declared;
+        const declared = interactive.dataset.cursor;
+        if (declared === "view" || declared === "explore" || declared === "hide") {
+          return declared;
+        }
         if (interactive.matches("input,select,textarea")) return "hide";
         return "interactive";
       };
@@ -74,15 +76,15 @@ export function CustomCursor() {
             labelScaleX: 0.416,
             labelScaleY: 0.416,
           },
-          drag: {
-            scaleX: 3.1,
-            scaleY: 1.15,
+          explore: {
+            scaleX: 3.15,
+            scaleY: 3.15,
             backgroundColor: "#f3efe8",
             borderColor: "#f3efe8",
             autoAlpha: 1,
-            text: "← Arraste →",
-            labelScaleX: 0.323,
-            labelScaleY: 0.87,
+            text: "Explorar",
+            labelScaleX: 0.317,
+            labelScaleY: 0.317,
           },
           hide: {
             scaleX: 0,

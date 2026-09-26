@@ -492,6 +492,257 @@ main {
   text-transform: uppercase;
 }
 
+.property-gallery {
+  position: relative;
+  background: #f3efe8;
+  color: #1a1814;
+}
+
+.property-gallery.is-webgl {
+  height: 400vh;
+}
+
+.property-gallery-stage {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.property-gallery.is-webgl .property-gallery-stage {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+}
+
+.property-gallery-heading {
+  position: absolute;
+  top: clamp(6.5rem, 10vh, 8rem);
+  right: clamp(1rem, 5.5vw, 5rem);
+  left: clamp(1rem, 5.5vw, 5rem);
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.property-gallery-heading h2 {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(3.2rem, 6vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.property-gallery-heading > p {
+  position: absolute;
+  top: -1.5rem;
+}
+
+.property-gallery-heading > span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.16em;
+}
+
+.property-gallery-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.property-gallery-panel {
+  position: absolute;
+  bottom: clamp(2rem, 7vh, 5.5rem);
+  left: clamp(1rem, 5.5vw, 5rem);
+  z-index: 3;
+  display: grid;
+  width: min(28rem, 42vw);
+  pointer-events: none;
+}
+
+.property-gallery-panel p,
+.property-gallery-fallback-copy p {
+  color: #8a5e26;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.property-gallery-panel h3,
+.property-gallery-fallback-copy h3 {
+  margin-top: 0.7rem;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(2.6rem, 5vw, 5.2rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.property-gallery-panel strong,
+.property-gallery-fallback-copy strong {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.property-gallery-panel a,
+.property-gallery-fallback-copy a,
+.property-gallery-card-link {
+  width: max-content;
+  margin-top: 1.4rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  pointer-events: auto;
+  text-transform: uppercase;
+}
+
+.property-gallery-instruction {
+  position: absolute;
+  right: clamp(1rem, 5.5vw, 5rem);
+  bottom: clamp(2rem, 7vh, 5.5rem);
+  z-index: 3;
+  max-width: 12rem;
+  color: #5e574c;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.property-gallery.is-fallback {
+  padding-block: clamp(8rem, 16vh, 12rem);
+}
+
+.property-gallery.is-fallback .property-gallery-stage {
+  overflow: visible;
+}
+
+.property-gallery.is-fallback .property-gallery-heading {
+  position: relative;
+  top: auto;
+  margin-inline: clamp(1rem, 5.5vw, 5rem);
+}
+
+.property-gallery-fallback {
+  display: flex;
+  gap: 1rem;
+  margin-top: 4rem;
+  overflow-x: auto;
+  padding-inline: clamp(1rem, 5.5vw, 5rem);
+  scroll-padding-inline: clamp(1rem, 5.5vw, 5rem);
+  scroll-snap-type: x mandatory;
+}
+
+.property-gallery-fallback-card {
+  width: min(84vw, 34rem);
+  flex: none;
+  scroll-snap-align: center;
+}
+
+.property-gallery-fallback-image {
+  position: relative;
+  height: min(64dvh, 38rem);
+  min-height: 28rem;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.property-gallery-fallback-copy {
+  padding-top: 1.5rem;
+}
+
+.property-gallery-fallback-copy h3 {
+  font-size: clamp(2.2rem, 10vw, 4rem);
+}
+
+.property-gallery-fallback-copy a {
+  display: inline-block;
+}
+
+.property-gallery-card-link {
+  display: block;
+}
+
+.property-detail {
+  min-height: 100dvh;
+  background: #111014;
+  color: #f3efe8;
+}
+
+.property-detail-back {
+  position: fixed;
+  top: 1.5rem;
+  left: clamp(1rem, 5.5vw, 5rem);
+  z-index: 4;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(255 255 255 / 0.32);
+  border-radius: 999px;
+  background: rgb(17 16 20 / 0.52);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(12px);
+}
+
+.property-detail-media {
+  position: relative;
+  height: 72dvh;
+  min-height: 32rem;
+}
+
+.property-detail-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(0deg, #111014, transparent 52%);
+}
+
+.property-detail-copy {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 3rem 8rem;
+}
+
+.property-detail-copy h1 {
+  max-width: 10ch;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(3.8rem, 9vw, 9rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.property-detail-copy > p {
+  max-width: 38rem;
+  color: rgb(243 239 232 / 0.68);
+  line-height: 1.8;
+}
+
+.property-detail-copy > div {
+  display: flex;
+  max-width: 48rem;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(243 239 232 / 0.18);
+}
+
+.property-detail-cta {
+  width: max-content;
+  margin-top: 1rem;
+  padding: 1rem 1.4rem;
+  border-radius: 999px;
+  background: #8a5e26;
+  font-weight: 700;
+}
+
 @media (min-width: 48rem) {
   .chapter-manifesto-grid {
     grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);
