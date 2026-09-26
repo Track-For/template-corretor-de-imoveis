@@ -1023,6 +1023,186 @@ main {
   }
 }
 
+.city-map-section {
+  position: relative;
+  padding-block: clamp(8rem, 16vh, 13rem);
+  overflow: hidden;
+  background: #111014;
+  color: #ede6da;
+}
+
+.city-map-heading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: clamp(3rem, 8vh, 6rem);
+}
+
+.city-map-heading .chapter-kicker {
+  margin-bottom: 1.5rem;
+  color: #c9954d;
+}
+
+.city-map-heading h2 {
+  max-width: 9ch;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(4rem, 9vw, 9.5rem);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+}
+
+.city-map-layout {
+  position: relative;
+  display: grid;
+  min-height: 46rem;
+}
+
+.city-map-list {
+  z-index: 3;
+  display: grid;
+  align-content: center;
+  padding: 1.5rem clamp(1rem, 5.5vw, 5rem);
+  background: #111014;
+}
+
+.city-map-list button {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid rgb(237 230 218 / 0.14);
+  color: rgb(237 230 218 / 0.36);
+  text-align: left;
+  transition: color 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.city-map-list button[aria-pressed="true"],
+.city-map-list button:hover,
+.city-map-list button:focus-visible {
+  color: #ede6da;
+}
+
+.city-map-list button > span,
+.city-map-list button > small {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.city-map-list button > span {
+  color: #c9954d;
+}
+
+.city-map-list button > strong {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+  font-weight: 300;
+}
+
+.city-map-viewport {
+  position: relative;
+  min-height: 46rem;
+  overflow: hidden;
+  background: #111014;
+}
+
+.city-map-viewport canvas,
+.city-map-svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.city-map-svg {
+  position: absolute;
+  inset: 0;
+}
+
+.city-map-card {
+  position: absolute;
+  right: clamp(1rem, 4vw, 3rem);
+  bottom: clamp(1rem, 4vw, 3rem);
+  z-index: 2;
+  display: grid;
+  width: min(22rem, calc(100% - 2rem));
+  padding: 1.4rem;
+  border: 1px solid rgb(237 230 218 / 0.16);
+  background: rgb(17 16 20 / 0.82);
+  backdrop-filter: blur(16px);
+}
+
+.city-map-card > span {
+  color: #c9954d;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.city-map-card > strong {
+  margin-top: 0.7rem;
+  font-family: var(--font-fraunces), serif;
+  font-size: 2.25rem;
+  font-weight: 300;
+}
+
+.city-map-card p {
+  margin-top: 0.45rem;
+  color: rgb(237 230 218 / 0.62);
+  font-size: 0.84rem;
+}
+
+.city-map-card a {
+  width: max-content;
+  margin-top: 1.2rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 64rem) {
+  .city-map-layout {
+    grid-template-columns: minmax(22rem, 4fr) minmax(0, 8fr);
+  }
+
+  .city-map-list {
+    padding-left: clamp(1rem, 5.5vw, 5rem);
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .city-map-layout {
+    padding-inline: 1rem;
+  }
+
+  .city-map-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-inline: 0;
+  }
+
+  .city-map-list button {
+    grid-template-columns: 1.5rem 1fr;
+    padding-inline: 0.7rem;
+  }
+
+  .city-map-list button > small {
+    display: none;
+  }
+
+  .city-map-viewport {
+    min-height: 38rem;
+  }
+}
+
+@media (max-width: 35rem) {
+  .city-map-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 48rem) {
   .chapter-manifesto-grid {
     grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);

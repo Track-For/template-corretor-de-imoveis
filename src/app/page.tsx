@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { Broker } from "@/components/sections/Broker";
+import { CityMap } from "@/components/sections/CityMap";
 import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
@@ -75,7 +75,7 @@ export default function Home() {
           image="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=2200&q=88"
           alt="Cidade ao anoitecer que introduz o capítulo Onde a luz chega"
         />
-        <Broker />
+        <CityMap />
         <Contact />
       </main>
       <Footer />
