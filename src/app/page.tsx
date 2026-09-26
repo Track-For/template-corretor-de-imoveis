@@ -6,7 +6,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { PropertyGallery } from "@/components/sections/PropertyGallery";
 import { WorldsSelector } from "@/components/sections/WorldsSelector";
-import { Process } from "@/components/sections/Process";
+import { Principles } from "@/components/sections/Principles";
 import { ZoomTransition } from "@/components/sections/ZoomTransition";
 
 const siteUrl =
@@ -65,7 +65,7 @@ export default function Home() {
           alt="Terraço panorâmico que introduz o capítulo Três mundos"
         />
         <WorldsSelector />
-        <Process />
+        <Principles />
         <ZoomTransition
           from="04"
           to="05"
