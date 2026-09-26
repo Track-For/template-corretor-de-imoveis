@@ -1,6 +1,6 @@
 "use client";
 
-import { gsap, SplitText } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 
@@ -21,44 +21,30 @@ export function Preloader() {
       ).matches;
       const alreadySeen = sessionStorage.getItem(SESSION_KEY) === "true";
 
+      const announceReady = () => {
+        document.documentElement.dataset.auroraReady = "true";
+        window.dispatchEvent(new Event("aurora:ready"));
+      };
+
       if (!root || reduceMotion || alreadySeen) {
         document.documentElement.classList.remove("is-preloading");
+        announceReady();
         setVisible(false);
         return;
       }
 
       document.documentElement.classList.add("is-preloading");
       let cancelled = false;
-      let split: SplitText | null = null;
 
       document.fonts.ready.then(() => {
         if (cancelled) return;
 
-        const heroTitle = document.querySelector<HTMLElement>("[data-hero-title]");
-        const heroImage = document.querySelector<HTMLElement>("[data-hero-image]");
         const strips = root.querySelectorAll<HTMLElement>("[data-odometer-strip]");
         const line = root.querySelector<HTMLElement>("[data-preloader-line]");
         const content = root.querySelector<HTMLElement>("[data-preloader-content]");
         const curtainTop = root.querySelector<HTMLElement>("[data-curtain-top]");
         const curtainBottom = root.querySelector<HTMLElement>("[data-curtain-bottom]");
 
-        if (heroTitle) {
-          split = SplitText.create(heroTitle, {
-            type: "lines,chars",
-            mask: "lines",
-            linesClass: "hero-preload-line",
-            charsClass: "hero-preload-char",
-          });
-          gsap.set(heroTitle, { perspective: 900 });
-          gsap.set(split.chars, {
-            autoAlpha: 0,
-            rotateX: -90,
-            yPercent: 105,
-            transformOrigin: "50% 100% -40px",
-          });
-        }
-
-        if (heroImage) gsap.set(heroImage, { scale: 1.35 });
         gsap.set(line, { scaleX: 0, transformOrigin: "left center" });
 
         const timeline = gsap.timeline({
@@ -66,6 +52,7 @@ export function Preloader() {
           onComplete: () => {
             sessionStorage.setItem(SESSION_KEY, "true");
             document.documentElement.classList.remove("is-preloading");
+            announceReady();
             setVisible(false);
           },
         });
@@ -83,27 +70,11 @@ export function Preloader() {
           .to(line, { scaleX: 1, duration: 1.25, ease: "none" }, 0)
           .to(content, { autoAlpha: 0, duration: 0.18 }, 1.22)
           .to(curtainTop, { yPercent: -100, duration: 1.1 }, 1.3)
-          .to(curtainBottom, { yPercent: 100, duration: 1.1 }, 1.3)
-          .to(heroImage, { scale: 1, duration: 1.45 }, 1.2);
-
-        if (split?.chars.length) {
-          timeline.to(
-            split.chars,
-            {
-              autoAlpha: 1,
-              rotateX: 0,
-              yPercent: 0,
-              duration: 0.65,
-              stagger: 0.018,
-            },
-            1.28,
-          );
-        }
+          .to(curtainBottom, { yPercent: 100, duration: 1.1 }, 1.3);
       });
 
       return () => {
         cancelled = true;
-        split?.revert();
         document.documentElement.classList.remove("is-preloading");
       };
     },
