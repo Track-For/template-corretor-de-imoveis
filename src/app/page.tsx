@@ -2,10 +2,10 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Broker } from "@/components/sections/Broker";
 import { Contact } from "@/components/sections/Contact";
-import { FeaturedProperty } from "@/components/sections/FeaturedProperty";
 import { Hero } from "@/components/sections/Hero";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { PropertyGallery } from "@/components/sections/PropertyGallery";
+import { WorldsSelector } from "@/components/sections/WorldsSelector";
 import { Process } from "@/components/sections/Process";
 import { ZoomTransition } from "@/components/sections/ZoomTransition";
 
@@ -64,7 +64,7 @@ export default function Home() {
           image="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=88"
           alt="Terraço panorâmico que introduz o capítulo Três mundos"
         />
-        <FeaturedProperty />
+        <WorldsSelector />
         <Process />
         <ZoomTransition
           from="04"
