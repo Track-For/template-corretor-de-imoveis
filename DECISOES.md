@@ -14,3 +14,7 @@
 - **Efeitos proibidos foram removidos também do código legado.** `DistortedImage` agora é uma imagem simples; separação RGB, curvatura por velocidade e skew do marquee não permanecem ativos no código.
 - **Canvases são montados apenas perto da viewport.** A mudança reduziu a auditoria móvel de 1,5 MB/Performance 40 para 695 KB/Performance 64, sem empobrecer a experiência quando o capítulo entra em cena.
 - **A meta de Performance foi reportada sem maquiar a medição.** Após três rodadas de otimização, Accessibility e CLS passaram, mas Performance permaneceu em 64. O valor e os próximos passos estão em `PENDENCIAS.md`.
+
+## 2026-09-27
+
+- **A URL canônica possui fallback centralizado e validado.** `NEXT_PUBLIC_SITE_URL` vazia ou malformada fazia `new URL("")` interromper a coleta da rota `/_not-found` na Vercel. Metadata, JSON-LD, sitemap e robots agora compartilham a mesma URL normalizada e mantêm o fallback de produção.

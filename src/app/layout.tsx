@@ -3,6 +3,7 @@ import { DayCycle } from "@/components/layout/DayCycle";
 import { Preloader } from "@/components/layout/Preloader";
 import { ScrollAnimations } from "@/components/layout/ScrollAnimations";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { metadataBase } from "@/lib/siteUrl";
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
@@ -23,11 +24,8 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurora-residencias.vercel.app";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase,
   title: "Aurora Residências | Imóveis de alto padrão",
   description:
     "Curadoria de imóveis de alto padrão, visitas sob medida e acompanhamento próximo até a entrega das chaves.",

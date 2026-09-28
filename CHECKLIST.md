@@ -11,6 +11,7 @@
 | 7. Mapa 3D | ✅ Completo | No capítulo 05, selecione cada bairro. A câmera deve voar por 1,6s até o pino, que cresce e pulsa. Em reduced-motion/sem WebGL, confirme o SVG e o card atualizado. |
 | 8. Palavra do corretor | ✅ Completo | Role lentamente pelo capítulo 06. As palavras devem passar de 0,15 para 1 de opacidade. Em reduced-motion, a frase deve permanecer integralmente visível. |
 | 9. Polimento | ⚠️ Performance a otimizar | Teste menu lateral, odômetro, linha de progresso, foco visível, skip link, menu mobile, formulário e footer sticky. Lighthouse móvel mediu Performance 64, Accessibility 97 e CLS 0,008; as duas últimas metas passaram, Performance ainda não. |
+| 10. Deploy Vercel | ✅ Completo | O build deve concluir mesmo se `NEXT_PUBLIC_SITE_URL` estiver vazia ou inválida; metadata, JSON-LD, sitemap e robots usam o fallback validado. |
 
 ## Validação técnica
 

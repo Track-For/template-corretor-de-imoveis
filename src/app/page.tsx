@@ -10,9 +10,7 @@ import { PropertyGallery } from "@/components/sections/PropertyGallery";
 import { WorldsSelector } from "@/components/sections/WorldsSelector";
 import { Principles } from "@/components/sections/Principles";
 import { ZoomTransition } from "@/components/sections/ZoomTransition";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurora-residencias.vercel.app";
+import { siteUrl } from "@/lib/siteUrl";
 
 const jsonLd = {
   "@context": "https://schema.org",

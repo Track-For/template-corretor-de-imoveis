@@ -28,7 +28,7 @@ Copie `.env.example` para `.env.local` e ajuste:
 
 - `RESEND_API_KEY`: chave da conta Resend. Sem ela, o formulário registra os dados no terminal e responde com sucesso para facilitar desenvolvimento e demonstração.
 - `CONTACT_EMAIL`: endereço que recebe os contatos enviados pelo formulário.
-- `NEXT_PUBLIC_SITE_URL`: domínio final usado em metadata, sitemap, robots e JSON-LD.
+- `NEXT_PUBLIC_SITE_URL`: URL absoluta do domínio final, incluindo `https://`, usada em metadata, sitemap, robots e JSON-LD. Se estiver ausente, vazia ou inválida, o projeto usa `https://aurora-residencias.vercel.app` como fallback.
 
 ## Estrutura
 
@@ -71,7 +71,7 @@ O formulário usa React Hook Form e Zod no cliente e valida os dados novamente n
 
 1. Envie o repositório para seu provedor Git.
 2. Importe o repositório na Vercel.
-3. Cadastre `RESEND_API_KEY`, `CONTACT_EMAIL` e `NEXT_PUBLIC_SITE_URL` em **Project Settings > Environment Variables**.
+3. Cadastre `RESEND_API_KEY`, `CONTACT_EMAIL` e `NEXT_PUBLIC_SITE_URL` em **Project Settings > Environment Variables**. Use uma URL completa, por exemplo `https://www.seudominio.com.br`, sem aspas.
 4. Faça o deploy. O projeto não exige configuração adicional de build.
 
 Não há Google Analytics, Google Tag Manager ou qualquer script de rastreamento neste projeto.
